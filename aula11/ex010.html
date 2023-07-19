@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+</head>
+
+<body>
+
+    <h1>Sistema de multas</h1>
+    
+    <label for="txtlimite">Velocidade limite da via:
+        <input type="number" name="txtlimite" id="txtlimite">
+    </label> <br>
+    
+    <label for="txtvel"><strong>Velocidade registrada:</strong>
+        <input type="number" name="txtvel" id="txtvel">
+    </label> <br>
+    
+    <button onclick="verificar()">Enviar</button>
+    <p id="msg"></p>
+
+    <script>
+
+        function verificar() {
+            var limite = document.getElementById('txtlimite').value
+            var vel = document.getElementById('txtvel').value
+            var msg = document.getElementById('msg')
+            
+            if (vel > limite ){
+                msg.innerHTML = 'Velocidade acima dos limites da via. <strong>MULTADO</strong>'
+            } else{
+                msg.innerText = 'Velocidade dentro dos limites da via'
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
