@@ -3,8 +3,9 @@ function verificar() {
     var ano = data.getFullYear()
     var formAno = document.getElementById('txtano')
     var res = document.getElementById('res')
-    if (formAno.value.length == 0 || formAno.value > ano) {
+    if (formAno.value.length == 0 || formAno.value > ano || formAno.value < 0) {
         alert('[ERRO] Verifique os dados e tente novamente!')
+        res.innerHTML = 'Preencha os dados acima para ver o resultado!'
     } else {
         var formSex = document.getElementsByName('radsex')
         var idade = ano - formAno.value
