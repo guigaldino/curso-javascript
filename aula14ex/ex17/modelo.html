@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Gerador de tabuada</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Gerador de tabuada</h1>
+    </header>
+
+    <section>
+        <div>
+            <p>
+                <label for="txtn">
+                    Número:
+                    <input type="number" name="txtn" id="txtnum">
+                </label>
+                <button onclick="gerarTabuada()">Gerar tabuada</button>
+            </p>
+        </div>
+
+        <div id="res">
+            <select name="tabuada" id="seltab" size="10" style="outline: none; width: 30%; display: none;"></select>
+        </div>
+    </section>
+
+    <footer>
+        &copy;CursoemVideo
+    </footer>
+
+</body>
+
+</html>
