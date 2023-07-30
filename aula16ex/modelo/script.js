@@ -1,18 +1,18 @@
-let numeroInput = document.getElementById('txtnum')
-let tabela = document.getElementById('tabelaNumeros')
-let resultado = document.getElementById('resultado')
 let valores = []
+let numeroImput = document.getElementById('txtnum')
+let tababelaNum = document.getElementById('tabelaNumeros')
+let resultado = document.getElementById('resultado')
 
-function isNumero(n) {
-    if (Number(n) >= 1 && Number(n) <= 100) {
+function isNumero(num) {
+    if (Number(num) >= 1 && Number(num) <= 100) {
         return true
     } else {
         return false
     }
 }
 
-function inLista(n, array) {
-    if (array.indexOf(Number(n)) != -1) {
+function inLista(num, array) {
+    if (array.indexOf(Number(num)) != -1) {
         return true
     } else {
         return false
@@ -21,34 +21,35 @@ function inLista(n, array) {
 
 
 function adicionar() {
-    if (isNumero(numeroInput.value) && !inLista(numeroInput.value, valores)) {
-        valores.push(Number(numeroInput.value))
+    if (isNumero(numeroImput.value) && !inLista(numeroImput.value, valores)) {
+        valores.push(Number(numeroImput.value))
         let itemTabela = document.createElement('option')
-        itemTabela.text = `Valor ${numeroInput.value} adicionado.`
-        tabela.appendChild(itemTabela)
+        itemTabela.text = `Valor ${numeroImput.value} adicionado`
+        itemTabela.value = `${numeroImput}`
+        tababelaNum.appendChild(itemTabela)
         resultado.innerHTML = ''
+
     } else {
-        alert('Valor inválido ou já encontrado na lista')
+        alert('Número inválido ou já adicionado a lista. Por favor, tente novamente!')
     }
 
-    numeroInput.value = ''
-    numeroInput.focus()
+    numeroImput.value = ''
+    numeroImput.focus()
 }
 
 function finalizar() {
-    if (valores.length == 0) {
-        alert('Adicione valores antes de finalizar')
-    } else {
-        let total = valores.length
-        let maiorNumero = Math.max.apply(null, valores)
-        let menorNumero = Math.min.apply(null, valores)
-        let soma = valores.reduce((accumulator, value) => accumulator + value)
-        let media = soma / valores.length
-        resultado.innerHTML = ''
-        resultado.innerHTML += `<p> Ao todo foram cadastrados ${total} números</p>`
-        resultado.innerHTML += `<p> O maior valor cadastrado foi ${maiorNumero}</p>`
-        resultado.innerHTML += `<p> O menor valor cadastrado foi ${menorNumero}</p>`
-        resultado.innerHTML += `<p> A soma de todos os números cadastrados é igual a: ${soma}</p>`
-        resultado.innerHTML += `<p> A média de todos os números cadastrados é igual a: ${media}</p> `
+    if(valores.length === 0){
+        alert("Adicione números antes de finalizar")
+    } else { 
+            let total = valores.length
+            let maiorNumero = Math.max.apply(null, valores)
+            let menorNumero = Math.min.apply(null, valores)
+            let soma = valores.reduce((accumulator, value) => accumulator + value)
+            let media = soma / total
+            resultado.innerHTML += `<p> O total de números cadastrados foi ${total} </p>`
+            resultado.innerHTML += `<p> O maior número cadastrado foi ${maiorNumero} </p>`
+            resultado.innerHTML += `<p> O menor número cadastrado foi ${menorNumero} </p>`
+            resultado.innerHTML += `<p> A soma dos números cadastrados foi ${soma} </p>`
+            resultado.innerHTML += `<p> A média dos valores cadastrados é igual a: ${media} </p>`
     }
 }
